@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org">
+<head>
+	<meta charset="UTF-8">
+	<title>SWITTY::USER</title>
+
+	<link th:href="@{/css/common/header.css}" rel="stylesheet">
+	<link th:href="@{/css/common/naviBar.css}" rel="stylesheet">
+</head>
+<body>
+<div th:replace="~{/common/header :: header-title}"></div>
+<div th:replace="~{/common/naviBar :: nav}"></div>
+
+<div class="list-container">
+	<div class="">
+		<h2>회원 목록</h2>
+	</div>
+
+	<hr class="">
+
+	<div>
+		<table class="members-table">
+			<thead>
+			<tr>
+				<th>이름</th>
+				<th>회원 ID</th>
+				<th>알람시간</th>
+				<th>등록일</th>
+			</tr>
+			</thead>
+			<tbody>
+			<tr th:each="member : ${members}">
+				<td><a class="list-a" href="detail.html" th:href="@{|/member/${member.memberId}|}" th:text="${member.memberId}">사사사</a></td>
+				<td><a class="list-a" href="detail.html" th:href="@{|/member/${member.memberId}|}" th:text="${member.memberNm}">사사사</a></td>
+				<td th:text="${member.alarm}">10000</td>
+				<td th:text="${#dates.format(member.regDtm, 'yyyy-MM-dd HH:mm:ss ')}">10</td>
+			</tr>
+			</tbody>
+		</table>
+	</div>
+</div> <!-- /container -->
+
+</body>
+</html>
