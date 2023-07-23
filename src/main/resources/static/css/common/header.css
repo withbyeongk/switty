@@ -1,0 +1,14 @@
+.header-container{
+    background-color: blueviolet;
+    height: 120px;
+    text-align: center;
+}
+
+.header-title{
+    font-size: 5rem;
+    color: white;
+}
+
+.header-title{
+    text-decoration:none;
+}

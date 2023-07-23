@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>SWITTY::NAV</title>
+</head>
+<body>
+<div class="naviBar-container" th:fragment="nav">
+  <nav id="nav">
+    <a class="naviBar-a" th:href="@{/}">SWITTY</a>
+    <ul class="naviBar-ul">
+      <div th:if="${session.loginAdmin == null}">
+        <div th:if="${session.loginMember == null}">
+          <li class="naviBar-li">
+            <a class="naviBar-a" th:href="@{/login}">LOGIN</a>
+          </li>
+        </div>
+        <div th:unless="${session.loginMember == null}">
+          <li class="naviBar-li">
+            <a class="naviBar-a" th:href="@{/logout}">LOGOUT</a>
+          </li>
+        </div>
+      </div>
+      <div th:unless="${session.loginAdmin == null}">
+        <li class="naviBar-li">
+          <a class="naviBar-a" th:href="@{/#}">test</a>
+        </li>
+      </div>
+    </ul>
+    <ul class="naviBar-ul">
+      <li class="naviBar-li">
+        <a class="naviBar-a" th:href="@{/}">HOME</a>
+      </li>
+      <li class="naviBar-li">
+        <a class="naviBar-a" th:href="@{/donation/list}">DONATION</a>
+      </li>
+      <li class="naviBar-li">
+        <a class="naviBar-a" th:href="@{/goods/list}">GOODS</a>
+      </li>
+      <li class="naviBar-li">
+        <a class="naviBar-a" th:href="@{/cart}">CART</a>
+      </li>
+      <li class="naviBar-li">
+        <a class="naviBar-a" th:href="@{/auction}">AUCTION</a>
+      </li>
+    </ul>
+  </nav>
+</div>
+</body>
+</html>

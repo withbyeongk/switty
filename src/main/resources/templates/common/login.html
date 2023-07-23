@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>SWITTY::LOGIN</title>
+
+  <link th:href="@{/css/common/header.css}" rel="stylesheet">
+  <link th:href="@{/css/common/naviBar.css}" rel="stylesheet">
+  <link th:href="@{/css/common/home.css}" rel="stylesheet">
+  <link th:href="@{/css/common/login.css}" rel="stylesheet">
+</head>
+<body>
+<div th:replace="~{/common/header :: header-title}"></div>
+<div th:replace="~{/common/naviBar :: nav}"></div>
+
+<div class="login-container">
+  <div class="login-form-div">
+    <form class="login-form" th:action th:object="${member}" method="post" action="/member/add">
+      <div class="id-div">
+        <input type="text" id="memberId" name="memberId" class="login-input" placeholder="아이디를 입력해 주세요." required>
+      </div>
+      <div class="pw-div">
+        <input type="password" id="memberPw" name="memberPw" class="login-input" placeholder="비밀번호를 입력해 주세요." required>
+      </div>
+      <div class="btn-div">
+        <button class="login-button" type="submit">로그인</button>
+        <button class="add-button"
+                onclick="location.href=''"
+                th:onclick="|location.href='@{/member/add}'|"
+                type="button">회원 가입</button>
+      </div>
+    </form>
+    <!-- <form class="add-form" method="get" action="/member/add"> -->
+    <!-- </form> -->
+  </div>
+</div>
+</body>
+</html>

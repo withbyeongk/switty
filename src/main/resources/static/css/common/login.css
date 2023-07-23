@@ -1,0 +1,92 @@
+.login-container{
+    margin:auto;
+}
+
+.login-form-div{
+    width: 80%;
+    /* background-color: rgb(231, 233, 215); */
+    /* border: 1px solid rgba(133, 31, 82, 0.589); */
+    margin: auto;
+    margin-top: 100px;
+}
+
+/*id, pw idv*/
+.id-div{
+    margin-top:5px;
+    text-align: center;
+}
+
+.pw-div{
+    margin-top:5px;
+    text-align: center;
+}
+
+.btn-div{
+    margin-top: 5px;
+    text-align: center;
+}
+
+/*input*/
+::placeholder{
+    color: lightcoral;
+}
+
+.login-input{
+    width: 200px;
+    height: 30px;
+    border: 0.5px solid rgb(187, 144, 144);
+    color: #1b0ca3;
+}
+
+#memberId:focus{
+    outline: none !important;
+    border-color: #1b0ca3;
+    box-shadow: 0 0 5px #1b0ca3;
+    border: 1px solid #1b0ca3;
+}
+
+#memberPw:focus{
+    outline: none !important;
+    border-color: #1b0ca3;
+    box-shadow: 0 0 5px #1b0ca3;
+    border: 1px solid #1b0ca3;
+}
+
+/*btn*/
+.login-button{
+    width: 100px;
+    height: 30px;
+    background-color: rgb(92, 59, 155);
+    color: white;
+    border: none;
+    border-radius: 4px;
+    vertical-align: middle;
+    /* float: right; */
+    /* margin-top: 60px; */
+    /* margin-right: 100px; */
+}
+
+.login-button:hover{
+    font-size: 16px;
+    background-color: rgb(90, 20, 219);
+    font-weight: bold;
+}
+
+.add-button{
+    width: 100px;
+    height: 30px;
+    background-color: rgb(117, 148, 204);
+    color: white;
+    border: none;
+    border-radius: 4px;
+    vertical-align: middle;
+    /* float: right; */
+    /* margin-top: 60px; */
+    /* margin-right: 100px; */
+}
+
+.add-button:hover{
+    font-size: 16px;
+    background-color: rgb(48, 100, 243);
+    font-weight: bold;
+}
