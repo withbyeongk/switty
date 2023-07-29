@@ -3,7 +3,7 @@ package ds.switty.user.entity;
 import jakarta.persistence.*;
 import lombok.*;
 
-import java.sql.Timestamp;
+import java.time.LocalDateTime;
 
 @Entity
 @Table(name = "SWT_USER")
@@ -17,7 +17,7 @@ public class User {
     @Id
     @Column(name = "USER_ID", length = 20)
     @GeneratedValue(strategy = GenerationType.TABLE, generator = "SWT_USER")
-    private int userId;
+    private Long userId;
 
     @Column(name = "USER_PW", length = 100)
     private String userPw;
@@ -31,13 +31,17 @@ public class User {
     @Column(name = "EMAIL", length = 30)
     private String email;
 
+    //phone length 임의로 30 넣음
+    @Column(name = "PHONE", length = 30)
+    private String phone;
+
     @Column(name = "STATE", length = 1)
     private char state;
 
     @Column(name = "UPDATED_AT")
-    private Timestamp updatedAt;
+    private LocalDateTime updatedAt;
 
     @Column(name = "CREATED_AT")
-    private Timestamp createdAt;
+    private LocalDateTime createdAt;
 
 }
