@@ -1,4 +1,4 @@
-package ds.switty.mybatis.common;
+package ds.switty.common;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 @RequiredArgsConstructor
 public class CommonController {
 
+
     @GetMapping("/")
     public String home() {
         return "home";
@@ -19,4 +20,6 @@ public class CommonController {
     public String goLogin() {
         return "common/login";
     }
+
+
 }
