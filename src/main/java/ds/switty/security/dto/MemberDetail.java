@@ -1,4 +1,4 @@
-package ds.switty.user.dto;
+package ds.switty.security.dto;
 
 
 import lombok.Getter;
@@ -8,13 +8,12 @@ import java.time.LocalDateTime;
 
 @Getter
 @Setter
-public class UserDetail {
+public class MemberDetail {
 
-    private String userId;
-    private String userNm;
-    private String userPw;
+    private String id;
+    private String memberName;
+    private String password;
     private String checkPw;
-    private String userType;
     private String email;
     private String phone;
     private String state;
