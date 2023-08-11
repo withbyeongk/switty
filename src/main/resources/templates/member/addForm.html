@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="UTF-8"/>
+	<title>SWITTY::USER</title>
+	<link th:href="@{/css/common/header.css}" rel="stylesheet"/>
+	<link th:href="@{/css/common/naviBar.css}" rel="stylesheet"/>
+	<style>
+        .add-container {
+            width: 100%;
+            max-width: 500px;
+            padding: 15px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .edit-label {
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        .edit-input {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 16px;
+            border-radius: 4px;
+            border: 1px solid rgba(0, 0, 0, 0.3);
+        }
+
+        hr {
+            border-top: 1px solid rgba(0, 0, 0, 0.1);
+            margin: 24px 0;
+        }
+
+        #join-btn {
+            margin: 8px;
+        }
+    </style>
+</head>
+<body>
+<div th:replace="~{/common/header :: header-title}"></div>
+<div th:replace="~{/common/naviBar :: nav}"></div>
+
+<div class="add-container">
+	<h2>회원가입</h2>
+
+	<form class="join-form" th:action th:object="${userDetail}" action="@{/user/add}" method="post">
+		<div>
+			<label for="memberId" class="edit-label">아이디</label>
+			<input type="text" th:field="*{memberId}" class="edit-input" placeholder="아이디를 입력해 주세요." required/>
+		</div>
+		<div>
+			<label for="memberName" class="edit-label">이름</label>
+			<input type="text" th:field="*{memberName}" class="edit-input" placeholder="이름을 입력해 주세요." required/>
+		</div>
+		<div>
+			<label for="password" class="edit-label">비밀번호</label>
+			<input type="password" th:field="*{password}" class="edit-input" placeholder="비밀번호를 입력해 주세요." required/>
+		</div>
+		<div>
+			<label for="checkPw" class="edit-label">비밀번호 확인</label>
+			<input type="password" th:field="*{checkPw}" class="edit-input" placeholder="비밀번호를 동일하게 입력해 주세요." required/>
+		</div>
+		<div>
+			<label for="email" class="edit-label">이메일</label>
+			<input type="text" th:field="*{email}" class="edit-input" placeholder="이메일 주소를 입력해 주세요." required/>
+		</div>
+		<div>
+			<label for="phone" class="edit-label">핸드폰 번호</label>
+			<input type="text" th:field="*{phone}" class="edit-input" placeholder="핸드폰 번호를 입력해 주세요." required/>
+		</div>
+
+		<hr/>
+
+		<button class="" type="submit" id="join-btn">회원가입</button>
+		<button class=""
+				onclick="location.href=''"
+				th:onclick="|location.href='@{/user/list}'|"
+				type="button">취소</button>
+	</form>
+</div>
+</body>
+</html>

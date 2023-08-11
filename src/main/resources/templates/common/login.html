@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns:th="http://thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
   <meta charset="UTF-8">
   <title>SWITTY::LOGIN</title>
@@ -15,22 +15,21 @@
 
 <div class="login-container">
   <div class="login-form-div">
-    <form class="login-form" th:action th:object="${user}" method="post" action="/user/add">
+    <form class="login-form" th:action th:object="${userDetail}" method="post" action="/authentication/login">
       <div class="id-div">
-        <input type="text" id="userId" name="userId" class="login-input" placeholder="아이디를 입력해 주세요." required>
+        <input type="text" id="memberId" name="memberId" class="login-input" placeholder="아이디를 입력해 주세요." required>
       </div>
       <div class="pw-div">
-        <input type="password" id="userPw" name="userPw" class="login-input" placeholder="비밀번호를 입력해 주세요." required>
+        <input type="password" id="password" name="password" class="login-input" placeholder="비밀번호를 입력해 주세요." required>
       </div>
       <div class="btn-div">
         <button class="login-button" type="submit">로그인</button>
         <button class="add-button"
-                onclick="location.href=''"
                 th:onclick="|location.href='@{/user/add}'|"
                 type="button">회원 가입</button>
       </div>
     </form>
-    <!-- <form class="add-form" method="get" action="/member/add"> -->
+    <!-- <form class="add-form" method="get" action="/user/add"> -->
     <!-- </form> -->
   </div>
 </div>
