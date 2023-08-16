@@ -46,12 +46,12 @@
 
 	<form class="join-form" th:action th:object="${userDetail}" action="@{/user/add}" method="post">
 		<div>
-			<label for="memberId" class="edit-label">아이디</label>
-			<input type="text" th:field="*{memberId}" class="edit-input" placeholder="아이디를 입력해 주세요." required/>
+			<label for="userId" class="edit-label">아이디</label>
+			<input type="text" th:field="*{userId}" class="edit-input" placeholder="아이디를 입력해 주세요." required/>
 		</div>
 		<div>
-			<label for="memberName" class="edit-label">이름</label>
-			<input type="text" th:field="*{memberName}" class="edit-input" placeholder="이름을 입력해 주세요." required/>
+			<label for="userName" class="edit-label">이름</label>
+			<input type="text" th:field="*{userName}" class="edit-input" placeholder="이름을 입력해 주세요." required/>
 		</div>
 		<div>
 			<label for="password" class="edit-label">비밀번호</label>

@@ -9,7 +9,6 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.time.LocalDateTime;
-import java.util.Optional;
 
 @Service
 @Transactional(readOnly = true)
@@ -35,6 +34,7 @@ public class UserServiceImpl implements UserService {
                 .phone(detail.getPhone())
                 .state(state)
                 .createdAt(createdAt)
+                .role("USER")
                 .build();
         validateDuplicateUser(user);
         userRepository.save(user);

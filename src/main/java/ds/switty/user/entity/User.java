@@ -6,8 +6,8 @@ import lombok.*;
 import java.time.LocalDateTime;
 
 @Entity
-@TableGenerator(name = "SWT_MEMBER", table = "hibernate_sequences", pkColumnValue = "SWT_MEMBER")
-@Table(name = "SWT_MEMBER")
+@TableGenerator(name = "SWT_USER", table = "hibernate_sequences", pkColumnValue = "SWT_USER")
+@Table(name = "SWT_USER")
 @Getter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @Builder
@@ -16,7 +16,7 @@ public class User {
 
     @Id
     @Column(name = "ID", length = 20)
-    @GeneratedValue(strategy = GenerationType.TABLE, generator = "SWT_MEMBER")
+    @GeneratedValue(strategy = GenerationType.TABLE, generator = "SWT_USER")
     private Long id;
 
     @Column(name = "USER_ID", length = 20, unique = true)
@@ -34,9 +34,11 @@ public class User {
     @Column(name = "PHONE", length = 30)
     private String phone;
 
-    //삭제 상태
     @Column(name = "STATE", length = 1)
     private char state;
+
+    @Column(name = "ROLE", length = 30)
+    private String role;
 
     @Column(name = "UPDATED_AT")
     private LocalDateTime updatedAt;

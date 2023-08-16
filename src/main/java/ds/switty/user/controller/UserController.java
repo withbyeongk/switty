@@ -2,7 +2,6 @@ package ds.switty.user.controller;
 
 
 import ds.switty.user.dto.UserDetail;
-import ds.switty.user.dto.UserLogin;
 import ds.switty.user.service.UserService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -14,7 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 @Slf4j
 @Controller
-@RequestMapping("/member")
+@RequestMapping("/user")
 @RequiredArgsConstructor
 public class UserController {
 
@@ -22,8 +21,8 @@ public class UserController {
 
     @GetMapping("/add")
     public String goAddForm(Model model) {
-        model.addAttribute("memberDetail",new UserDetail());
-        return "member/addForm";
+        model.addAttribute("userDetail",new UserDetail());
+        return "user/addForm";
     }
 
     @PostMapping("/add")
@@ -31,7 +30,7 @@ public class UserController {
         try {
             userService.addUser(detail);
             log.info("user :: add :: success");
-            return "redirect:/user/list";
+            return "redirect:/login";
 //            return ResponseEntity.ok("회원가입 완료");
         } catch (Exception e) {
             log.info("user :: add :: fail");

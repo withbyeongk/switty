@@ -21,6 +21,11 @@ public class JwtUserDetailsService implements UserDetailsService {
         User user = userRepository.findByUserId(userId)
                 .orElseThrow(() -> new UsernameNotFoundException("해당 아이디가 없습니다."));
 
-        return new JwtUser(user.getId(), user.getUserId(), user.getPassword());
+//        return new JwtUser(user.getId(), user.getUserId(), user.getPassword());
+        return org.springframework.security.core.userdetails.User.builder()
+                .username(user.getUserName())
+                .password(user.getPassword())
+//                .roles()
+                .build();
     }
 }

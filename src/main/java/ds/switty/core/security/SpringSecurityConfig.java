@@ -1,6 +1,7 @@
 package ds.switty.core.security;
 
 import jakarta.servlet.DispatcherType;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.method.configuration.EnableMethodSecurity;
@@ -25,9 +26,11 @@ import static org.springframework.security.config.Customizer.withDefaults;
 @EnableMethodSecurity
 public class SpringSecurityConfig {
 
-    @Bean
-    public PasswordEncoder passwordEncoder() {
-        return new BCryptPasswordEncoder();
+    private final JwtTokenProvider jwtTokenProvider;
+
+    @Autowired
+    public SpringSecurityConfig(JwtTokenProvider jwtTokenProvider) {
+        this.jwtTokenProvider = jwtTokenProvider;
     }
 
     @Bean
@@ -35,23 +38,36 @@ public class SpringSecurityConfig {
         http.addFilterBefore(new CorsFilter(corsConfigurationSource), UsernamePasswordAuthenticationFilter.class)
                 .authorizeHttpRequests(request -> request
                         .dispatcherTypeMatchers(DispatcherType.FORWARD).permitAll()
-                        .requestMatchers("/common/**",
-                                "/member/add",
+                        .requestMatchers(
+                                "/common/**",
+                                "/user/add",
                                 "/css/**",
-                                "/").permitAll()
+                                "/authentication/login",
+                                "/"
+                        ).permitAll()
                         .anyRequest().authenticated()
                 )
                 .formLogin(login -> login
                         .loginPage("/login")
-                        .loginProcessingUrl("/member/login")
-                        .usernameParameter("memberId")
+                        .loginProcessingUrl("/authentication/login")
+                        .successHandler(new JwtAuthenticationSuccessHandler(jwtTokenProvider))
+                        .usernameParameter("userId")
                         .passwordParameter("password")
-                        .defaultSuccessUrl("/home", true)
                         .permitAll()
                 )
                 .logout(withDefaults());
 
         return http.build();
+    }
+
+    @Bean
+    public PasswordEncoder passwordEncoder() {
+        return new BCryptPasswordEncoder();
+    }
+
+    @Bean
+    public JwtAuthenticationFilter jwtAuthenticationFilter(JwtTokenProvider jwtTokenProvider, JwtUserDetailsService jwtUserDetailsService) {
+        return new JwtAuthenticationFilter(jwtTokenProvider, jwtUserDetailsService);
     }
 
     @Bean

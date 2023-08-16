@@ -15,9 +15,9 @@
 
 <div class="login-container">
   <div class="login-form-div">
-    <form class="login-form" th:action th:object="${userDetail}" method="post" action="/authentication/login">
+    <form class="login-form" th:action="@{/authentication/login}" th:object="${userLogin}" method="post">
       <div class="id-div">
-        <input type="text" id="memberId" name="memberId" class="login-input" placeholder="아이디를 입력해 주세요." required>
+        <input type="text" id="userId" name="userId" class="login-input" placeholder="아이디를 입력해 주세요." required>
       </div>
       <div class="pw-div">
         <input type="password" id="password" name="password" class="login-input" placeholder="비밀번호를 입력해 주세요." required>
@@ -29,8 +29,7 @@
                 type="button">회원 가입</button>
       </div>
     </form>
-    <!-- <form class="add-form" method="get" action="/user/add"> -->
-    <!-- </form> -->
+    <p th:if="${errorMessage != null}" class="error-message" th:text="${errorMessage}"></p>
   </div>
 </div>
 </body>
