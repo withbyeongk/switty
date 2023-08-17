@@ -6,7 +6,11 @@ import lombok.*;
 import java.time.LocalDateTime;
 
 @Entity
-@TableGenerator(name = "SWT_USER", table = "hibernate_sequences", pkColumnValue = "SWT_USER")
+@TableGenerator(
+        name = "SWT_USER",
+        table = "hibernate_sequences",
+        pkColumnValue = "SWT_USER",
+        allocationSize = 1)
 @Table(name = "SWT_USER")
 @Getter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)

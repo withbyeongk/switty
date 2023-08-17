@@ -25,7 +25,7 @@ public class JwtUserDetailsService implements UserDetailsService {
         return org.springframework.security.core.userdetails.User.builder()
                 .username(user.getUserName())
                 .password(user.getPassword())
-//                .roles()
+                .roles()
                 .build();
     }
 }

@@ -22,7 +22,7 @@ import java.util.List;
 import static org.springframework.security.config.Customizer.withDefaults;
 
 @Configuration
-@EnableWebSecurity
+@EnableWebSecurity //스프링 시큐리티 사용을 위한 어노테이션
 @EnableMethodSecurity
 public class SpringSecurityConfig {
 

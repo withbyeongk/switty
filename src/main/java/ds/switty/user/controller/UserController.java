@@ -39,4 +39,17 @@ public class UserController {
         }
     }
 
+    @GetMapping("/{id}/edit")
+    public String goPostUser(Model model) {
+        model.addAttribute("userDetail",new UserDetail());
+        //TODO: 수정 페이지로 이동 변경
+        return "user/addForm";
+    }
+
+//    @PostMapping("/{id}/edit")
+//    public String postUser(@PathVariable Long id, UserDetail userDetail) {
+//        model.addAttribute("userDetail",new UserDetail());
+//        return "user/addForm";
+//    }
+
 }
